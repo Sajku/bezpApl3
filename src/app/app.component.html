@@ -1,0 +1,27 @@
+<h1>Formularz użytkownika:</h1>
+
+<div class="inputs">
+  <input type="text" [(ngModel)]="firstName" placeholder="Imie" />
+  <input type="text" [(ngModel)]="lastName" placeholder="Nazwisko" />
+  <textarea
+    rows="4"
+    [(ngModel)]="ytLink"
+    (ngModelChange)="onLinkChange($event)"
+    placeholder="Link do filmu na yt"
+  ></textarea>
+</div>
+
+<div class="results">
+  <h2>Twoje dane:</h2>
+
+  <p>Imie: {{ firstName }}</p>
+
+  <!-- <p [innerHtml]="'Nazwisko: ' + lastName"></p> -->
+
+  <iframe
+    [src]="safeYtLink"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
